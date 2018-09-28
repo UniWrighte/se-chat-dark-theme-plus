@@ -1,5 +1,9 @@
 ## SE Chat Dark Theme Plus
-  
+ 
+
+NOTE: This is a port of the original Chrome extension for firefox browser. 
+
+
 work in progress theme for StackExchange chats, also includes 'plugins' for additional features. 
   
 [![](http://i.imgur.com/RLxQIoP.png)](http://i.imgur.com/cVSJtWC.png)
