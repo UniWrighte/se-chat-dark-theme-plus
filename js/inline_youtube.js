@@ -18,7 +18,7 @@ function youtubeInliner(node) {
     vid.setAttribute('allowfullscreen', 'true');
     vid.classList.add('youtube-onebox');
     const jsapi = videoHref.includes('?') ? '&enablejsapi=1' : '?enablejsapi=1';
-    vid.src = '//youtube.com/embed/' + videoHref + jsapi; // new href
+    vid.src = 'https://youtube.com/embed/' + videoHref + jsapi; // new href
     vid.hidden = yt.hidden;
     yt.parentNode.replaceChild(vid, yt); // replace old link with iframe
 }
