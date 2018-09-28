@@ -1,4 +1,10 @@
-{
+{ 
+  "applications": {
+  "gecko": {
+    "id": "addon@example.com",
+    "strict_min_version": "42.0"
+  }
+    },
   "name": "SO Dark Chat +",
   "description": "Provides a new dark theme for stackoverflow chat.",
   "version": "0.1.5",
@@ -8,7 +14,10 @@
     "js": ["script.js"],
     "css": ["css/style.css", "CodeMirror/css/codemirror.css", "CodeMirror/css/monokai.css"]
   }],
-  "options_page": "options.html",
+  "options_ui":{
+      "page": "options.html",
+      "browser_style" : false
+  },
   "background": {
     "scripts": ["background.js"]
   },

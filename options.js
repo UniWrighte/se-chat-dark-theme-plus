@@ -2,6 +2,9 @@ const form = document.getElementById('optForm');
 const message = document.getElementById('message');
 form.onsubmit = save;
 load();
+function reportWrap(s){
+    message.textContent = s
+}
 function save(e) {
 	e.preventDefault();
 	let data = {};
@@ -9,7 +12,9 @@ function save(e) {
 	if( element.type === 'submit' || element.type === 'button' ) return;
 		data[element.id] = getValue(element); // only works for checkboxes obviously. 
 	});
-	chrome.storage.sync.set(data, report('settings saved'));
+	let setSync = browser.storage.sync.set(data);
+    setSync.then(report('settings saved'), reportWrap);
+
 }
 function load() {
 	let data = {};
@@ -17,11 +22,13 @@ function load() {
 		if( element.type === 'submit' || element.type === 'button' ) return;
 		data[element.id] = true;
 	})
-	chrome.storage.sync.get(data, items => {
+	let getSync = browser.storage.sync.get(data);
+    getSync.then(items => {
 		console.log(items);
 		Object.keys(items).forEach(key => setValue(form.elements[key], items[key]));
 	});
 }
+
 function report(text, delay = 5000) {
 	return function() {
 		message.textContent = text;
